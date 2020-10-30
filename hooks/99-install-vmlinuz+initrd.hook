@@ -1,0 +1,12 @@
+[Trigger]
+Type = Path
+Operation = Install
+Operation = Upgrade
+Target = usr/lib/modules/*/vmlinuz
+
+[Action]
+Description = install vmlinuz and run dracut (initramfs)
+Depends = dracut
+When = PostTransaction
+Exec = /etc/pacman.d/hooks/scripts/install-vmlinuz-run-dracut.sh
+NeedsTargets
